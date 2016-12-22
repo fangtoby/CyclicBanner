@@ -57,9 +57,19 @@ class TFBannerUseScrollViewController: UIViewController {
     
     /// 添加timer
     func addTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { [weak self] (timer) in
+        /// 利用这种方式添加的timer 如果有列表滑动的话不会调用这个timer，因为当前runloop的mode更换了
+//        timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { [weak self] (timer) in
+//            self?.nextImage()
+//        })
+        
+        timer = Timer(timeInterval: 2, repeats: true, block: { [weak self] _ in
             self?.nextImage()
         })
+        
+        guard let timer = timer else {
+            return
+        }
+        RunLoop.current.add(timer, forMode: .commonModes)
     }
     
     /// 下一个图片
