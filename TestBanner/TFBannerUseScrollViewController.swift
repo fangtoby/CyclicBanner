@@ -38,6 +38,7 @@ class TFBannerUseScrollViewController: UIViewController {
         }
         
         do {
+            /// 只使用3个UIImageView，依次设置好最后一个，第一个，第二个图片，这里面使用取模运算。
             for index in 0..<3 {
                 let imageView = UIImageView(frame: CGRect(x: CGFloat(index) * kScreenWidth, y: 0, width: kScreenWidth, height: kScreenHeight))
                 imageView.image = UIImage(named: "\((index + 3) % 4).png")
@@ -104,6 +105,7 @@ extension TFBannerUseScrollViewController: UIScrollViewDelegate {
         timer = nil
     }
     
+    /// 当停止滚动的时候重新设置三个ImageView的内容，然后悄悄滴显示中间那个imageView
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         reloadImage()
         scrollView.setContentOffset(CGPoint(x: kScreenWidth, y: 0), animated: false)
