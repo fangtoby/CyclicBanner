@@ -65,10 +65,10 @@
             </objects>
             <point key="canvasLocation" x="679" y="194"/>
         </scene>
-        <!--View Controller-->
+        <!--Banner Use Collection View Controller-->
         <scene sceneID="vqp-YG-bLE">
             <objects>
-                <viewController id="EGT-Ay-RGh" sceneMemberID="viewController">
+                <viewController id="EGT-Ay-RGh" customClass="TFBannerUseCollectionViewController" customModule="TestBanner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8RI-8L-jNN"/>
                         <viewControllerLayoutGuide type="bottom" id="Gne-Ft-VhV"/>
@@ -104,6 +104,7 @@
         <!--Navigation Controller-->
         <scene sceneID="034-Tv-zrO">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hAL-81-lLQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="38s-wd-PHE" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xe6-w7-14G">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -113,7 +114,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="A8M-in-lbY"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hAL-81-lLQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-108" y="194"/>
         </scene>

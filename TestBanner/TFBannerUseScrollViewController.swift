@@ -72,6 +72,11 @@ class TFBannerUseScrollViewController: UIViewController {
         RunLoop.current.add(timer, forMode: .commonModes)
     }
     
+    func removeTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
     /// 下一个图片
     func nextImage() {
         if pageView.currentPage == imageCount - 1 {
@@ -111,8 +116,7 @@ extension TFBannerUseScrollViewController: UIScrollViewDelegate {
     
     /// 开始滑动的时候，停止timer，设置为niltimer才会销毁
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        timer?.invalidate()
-        timer = nil
+        removeTimer()
     }
     
     /// 当停止滚动的时候重新设置三个ImageView的内容，然后悄悄滴显示中间那个imageView
