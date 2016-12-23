@@ -22,11 +22,19 @@ class TFBannerUseScrollViewController: UIViewController {
     }
     
     func setupViews() {
+        automaticallyAdjustsScrollViewInsets = false
+        
         do {
             scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: kScreenHeight))
             scrollView.delegate = self
             view.addSubview(scrollView)
         }
+//        self.scrollView = {
+//            let scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: kScreenHeight))
+//            scrollView.delegate = self
+//            view.addSubview(scrollView)
+//            return scrollView
+//        }()
         
         do {
             pageView = UIPageControl(frame: CGRect(x: 0, y: kScreenHeight - 30, width: kScreenWidth, height: 30))

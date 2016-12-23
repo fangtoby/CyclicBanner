@@ -22,18 +22,23 @@ class TFBannerUseCollectionViewController: UIViewController {
     }
     
     func setupViews() {
+        automaticallyAdjustsScrollViewInsets = false
+        
         do {
             let flowLayout = UICollectionViewFlowLayout()
             flowLayout.minimumLineSpacing = 0
             flowLayout.minimumInteritemSpacing = 0
             flowLayout.scrollDirection = .horizontal
             flowLayout.itemSize = CGSize(width: kScreenWidth, height: kScreenHeight)
+            flowLayout.estimatedItemSize = CGSize(width: kScreenWidth, height: kScreenHeight)
+            
             collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: kScreenHeight), collectionViewLayout: flowLayout)
-            collectionView.backgroundColor = UIColor.red
             collectionView.register(TFBannerCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
             view.addSubview(collectionView)
             collectionView.delegate = self
             collectionView.dataSource = self
+            collectionView.isPagingEnabled = true
+            collectionView.showsHorizontalScrollIndicator = false
         }
         
         do {
@@ -48,11 +53,6 @@ class TFBannerUseCollectionViewController: UIViewController {
     
     /// 添加timer
     func addTimer() {
-        /// 利用这种方式添加的timer 如果有列表滑动的话不会调用这个timer，因为当前runloop的mode更换了
-        //        timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { [weak self] (timer) in
-        //            self?.nextImage()
-        //        })
-        
         timer = Timer(timeInterval: 2, repeats: true, block: { [weak self] _ in
             self?.nextImage()
         })
@@ -80,12 +80,13 @@ extension TFBannerUseCollectionViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count + 2
+        return images.count * 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? TFBannerCollectionViewCell
         
+        print(indexPath.row)
         if let cell = cell {
             cell.imageName = images[indexPath.item % 4]
             return cell

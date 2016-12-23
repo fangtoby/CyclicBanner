@@ -23,8 +23,8 @@ class TFBannerCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        imageView = UIImageView(frame: self.frame)
-        addSubview(imageView)
+        imageView = UIImageView(frame: self.bounds)
+        contentView.addSubview(imageView)
     }
     
     required init?(coder aDecoder: NSCoder) {
