@@ -142,7 +142,11 @@ extension TFBannerUseCollectionViewController: UICollectionViewDataSource {
     }
 }
 
-extension TFBannerUseCollectionViewController: UICollectionViewDelegate {
+extension TFBannerUseScrollViewController: UICollectionViewDelegate {
+    
+}
+
+extension TFBannerUseCollectionViewController: UIScrollViewDelegate {
     
     /// 开始滑动的时候，停止timer，设置为niltimer才会销毁
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
