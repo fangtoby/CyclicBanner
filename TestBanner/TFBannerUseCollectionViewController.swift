@@ -142,7 +142,7 @@ extension TFBannerUseCollectionViewController: UICollectionViewDataSource {
     }
 }
 
-extension TFBannerUseScrollViewController: UICollectionViewDelegate {
+extension TFBannerUseCollectionViewController: UICollectionViewDelegate {
     
 }
 
