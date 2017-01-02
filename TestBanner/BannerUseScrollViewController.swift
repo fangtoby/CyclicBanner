@@ -1,5 +1,5 @@
 //
-//  TFBannerUseScrollViewController.swift
+//  BannerUseScrollViewController.swift
 //  TestBanner
 //
 //  Created by tiantengfei on 2016/12/22.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TFBannerUseScrollViewController: UIViewController {
+class BannerUseScrollViewController: UIViewController {
 
     let imageCount = 4
     var scrollView: UIScrollView!
@@ -120,7 +120,7 @@ class TFBannerUseScrollViewController: UIViewController {
     }
 }
 
-extension TFBannerUseScrollViewController: UIScrollViewDelegate {
+extension BannerUseScrollViewController: UIScrollViewDelegate {
     
     /// 开始滑动的时候，停止timer，设置为niltimer才会销毁
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {

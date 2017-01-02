@@ -1,5 +1,5 @@
 //
-//  TFBannerCollectionViewCell.swift
+//  BannerCollectionViewCell.swift
 //  TestBanner
 //
 //  Created by 田腾飞 on 2016/12/22.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TFBannerCollectionViewCell: UICollectionViewCell {
+class BannerCollectionViewCell: UICollectionViewCell {
     var imageName: String? {
         didSet {
             guard let imageName = imageName else {

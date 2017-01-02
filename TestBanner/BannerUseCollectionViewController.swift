@@ -1,5 +1,5 @@
 //
-//  TFBannerUseCollectionViewController.swift
+//  BannerUseCollectionViewController.swift
 //  TestBanner
 //
 //  Created by tiantengfei on 2016/12/22.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TFBannerUseCollectionViewController: UIViewController {
+class BannerUseCollectionViewController: UIViewController {
 
     let images = ["0.png", "1.png", "2.png", "3.png"]
     var collectionView: UICollectionView!
@@ -34,7 +34,7 @@ class TFBannerUseCollectionViewController: UIViewController {
             flowLayout.estimatedItemSize = CGSize(width: kScreenWidth, height: kScreenHeight)
             
             collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: kScreenHeight), collectionViewLayout: flowLayout)
-            collectionView.register(TFBannerCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+            collectionView.register(BannerCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
             view.addSubview(collectionView)
             collectionView.delegate = self
             collectionView.dataSource = self
@@ -121,7 +121,7 @@ class TFBannerUseCollectionViewController: UIViewController {
     }
 }
 
-extension TFBannerUseCollectionViewController: UICollectionViewDataSource {
+extension BannerUseCollectionViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -131,7 +131,7 @@ extension TFBannerUseCollectionViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? TFBannerCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? BannerCollectionViewCell
         
         if let cell = cell {
             cell.imageName = images[indexPath.item % 4]
@@ -142,11 +142,11 @@ extension TFBannerUseCollectionViewController: UICollectionViewDataSource {
     }
 }
 
-extension TFBannerUseCollectionViewController: UICollectionViewDelegate {
+extension BannerUseCollectionViewController: UICollectionViewDelegate {
     
 }
 
-extension TFBannerUseCollectionViewController: UIScrollViewDelegate {
+extension BannerUseCollectionViewController: UIScrollViewDelegate {
     
     /// 开始滑动的时候，停止timer，设置为niltimer才会销毁
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
