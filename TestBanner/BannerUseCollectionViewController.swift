@@ -109,11 +109,11 @@ class BannerUseCollectionViewController: UIViewController {
         guard let currentIndexPath = currentIndexPath else {
             return
         }
-        if currentIndexPath.item == images.count * 2 - 1 {  //如果是最后一个图片，回到前一个section的最后一张图片
+        if currentIndexPath.item == images.count * 2 - 1 {  //如果是最后一个图片，回到第一部分的最后一张图片
             let newIndexPath = IndexPath(item: images.count - 1, section: 0)
             self.currentIndexPath = newIndexPath
             collectionView.scrollToItem(at: newIndexPath, at: .centeredHorizontally, animated: false)
-        } else if currentIndexPath.item == 0 {  //如果是第一个图片，就回到第二个section的第一张图片
+        } else if currentIndexPath.item == 0 {  //如果是第一个图片，就回到第二部分的第一张图片
             let newIndexPath = IndexPath(item: images.count, section: 0)
             self.currentIndexPath = newIndexPath
             collectionView.scrollToItem(at: newIndexPath, at: .centeredHorizontally, animated: false)
